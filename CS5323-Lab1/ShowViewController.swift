@@ -7,30 +7,39 @@
 
 import UIKit
 
-class ShowViewController: UIViewController {
+class ShowViewController: UIViewController, ModalViewControllerDelegate {
 
     @IBOutlet weak var showNameLabel: UILabel!
+    @IBOutlet weak var showCoverImage: UIImageView!
     
-    var ShowName = String()
+    @IBAction func displayReviewsModalButton(_ sender: UIButton) {
+        self.showModal(sender: sender)
+    
+    }
     
     let mediaModel = MediaModel.shared;
     var showData: Show!;
     
+    var modalView: ReviewsModalViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.modalView = storyboard?.instantiateViewController(withIdentifier: "reviewsModalViewController") as? ReviewsModalViewController
         
-        showNameLabel.text = ShowName
-        
-        showData = mediaModel.getMediaItemByName(name: ShowName) as? Show
-        
-        if(showData == nil) {
-            fatalError("Missing Show Data!!!")
-        } else {
-            print(showData!)
-        }
+        self.showNameLabel.text = self.showData.name
 
-        // Do any additional setup after loading the view.
+    }
+    
+    func showModal(sender: AnyObject) {
+        if(self.modalView?.modalDelegate == nil) {
+            self.modalView!.modalDelegate = self;
+        }
+        
+        self.present(self.modalView!, animated: true, completion: nil)
+    }
+    
+    func modalDidFinished() {
+        self.modalView!.dismiss(animated: true, completion: nil)
     }
     
 

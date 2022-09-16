@@ -52,11 +52,17 @@ class AllMediaTableViewController: UITableViewController {
             return cell
 
             
-        } else {
+        } else if media[indexPath.row] is Show {
             print("\(media[indexPath.row].name) is a Show")
             let cell = tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as! ShowTableViewCell
             let name = media[indexPath.row].name
             cell.showNameLabel?.text = name;
+            return cell
+        } else{
+            print("\(media[indexPath.row].name) is a Podcast")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "podcastCell", for: indexPath) as! PodcastTableViewCell
+            let name = media[indexPath.row].name
+            cell.podcastNameLabel?.text = name;
             return cell
         }
     }
@@ -116,33 +122,55 @@ class AllMediaTableViewController: UITableViewController {
     */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let segue.
         
         if let cell = sender as? ShowTableViewCell {
-            let showName = cell.showNameLabel.text!
-            print("Sent by \(showName)")
+            let showData = mediaModel.getMediaItemByName(name: cell.showNameLabel.text!) as? Show
             
-            if let destVC = segue.destination as? ShowViewController {
-//                destVC.showNameLabel?.text = showName
-                destVC.ShowName = showName;
+            if let destinationViewController = segue.destination as? ShowViewController {
+                destinationViewController.showData = showData;
+                return
             } else {
-                print("failed to coerce destination")
+                fatalError("failed to pass data as props")
             }
-            
-//            guard let firstVC = segue.destination as? ShowViewController else { return }
-////            firstVC.firstname = textFieldFirstName.text
-//
-//            print("setting destination name...")
-//
-//            firstVC.showNameLabel?.text = showName
-            
-            return
         }
+        
         if let cell = sender as? MovieTableViewCell {
-            print("Sent by \(cell.movieNameLabel.text!)")
-            
-            return
+            let movieData = mediaModel.getMediaItemByName(name: cell.movieNameLabel.text!) as? Movie
+
+            if let destinationViewController = segue.destination as? MovieViewController {
+                destinationViewController.movieData = movieData
+                return
+            } else {
+                fatalError("Failed to pass data as props")
+            }
         }
+        
+        if let cell = sender as? PodcastTableViewCell {
+            let podcastData = mediaModel.getMediaItemByName(name: cell.podcastNameLabel.text!) as? Podcast
+            
+            if let destinationViewController = segue.destination as? PodcastViewController {
+                destinationViewController.podcastData = podcastData
+                return
+            } else {
+                fatalError("Failed to pass data as props")
+            }
+        }
+      
+//    }
+        
+//        if let cell = sender as? PodcastTableViewCell {
+//                let movieData = mediaModel.getMediaItemByName(name: cell.po.text!) as? Movie
+//
+//                if let destinationViewController = segue.destination as? MovieViewController {
+//                    destinationViewController.movieData = movieData
+//                } else {
+//                    fatalError("Failed to pass data as props")
+//                }
+//                fatalError("Failed to coerce cell")
+//            }
+//            return
+//        }
+    
         
         print("ERROR")
         fatalError("Could not determine segue source cell")

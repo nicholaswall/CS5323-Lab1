@@ -19,6 +19,12 @@
 		FA8F927328D2C9C300B8D635 /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F927228D2C9C300B8D635 /* ShowTableViewCell.swift */; };
 		FA8F927528D2E0BC00B8D635 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F927428D2E0BC00B8D635 /* MovieViewController.swift */; };
 		FA8F927728D2E0CA00B8D635 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F927628D2E0CA00B8D635 /* ShowViewController.swift */; };
+		FA8F927928D3D22E00B8D635 /* PodcastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F927828D3D22E00B8D635 /* PodcastTableViewCell.swift */; };
+		FA8F927B28D41AB600B8D635 /* ReviewsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F927A28D41AB600B8D635 /* ReviewsModalViewController.swift */; };
+		FA8F927E28D4323E00B8D635 /* CreateMovieReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F927D28D4323E00B8D635 /* CreateMovieReviewViewController.swift */; };
+		FA8F928028D4326E00B8D635 /* CreateShowReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F927F28D4326E00B8D635 /* CreateShowReviewViewController.swift */; };
+		FA8F928228D4327E00B8D635 /* CreatePodcastReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F928128D4327E00B8D635 /* CreatePodcastReviewViewController.swift */; };
+		FA8F928428D43D0100B8D635 /* PodcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F928328D43D0100B8D635 /* PodcastViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +42,13 @@
 		FA8F927228D2C9C300B8D635 /* ShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
 		FA8F927428D2E0BC00B8D635 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		FA8F927628D2E0CA00B8D635 /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
+		FA8F927828D3D22E00B8D635 /* PodcastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastTableViewCell.swift; sourceTree = "<group>"; };
+		FA8F927A28D41AB600B8D635 /* ReviewsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsModalViewController.swift; sourceTree = "<group>"; };
+		FA8F927C28D42D9300B8D635 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		FA8F927D28D4323E00B8D635 /* CreateMovieReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMovieReviewViewController.swift; sourceTree = "<group>"; };
+		FA8F927F28D4326E00B8D635 /* CreateShowReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateShowReviewViewController.swift; sourceTree = "<group>"; };
+		FA8F928128D4327E00B8D635 /* CreatePodcastReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePodcastReviewViewController.swift; sourceTree = "<group>"; };
+		FA8F928328D43D0100B8D635 /* PodcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +85,13 @@
 				FA7284EC28C8F514002CB276 /* SceneDelegate.swift */,
 				FA7284EE28C8F514002CB276 /* ViewController.swift */,
 				FA7284F028C8F514002CB276 /* Main.storyboard */,
+				FA8F928328D43D0100B8D635 /* PodcastViewController.swift */,
+				FA8F927F28D4326E00B8D635 /* CreateShowReviewViewController.swift */,
+				FA8F928128D4327E00B8D635 /* CreatePodcastReviewViewController.swift */,
+				FA8F927D28D4323E00B8D635 /* CreateMovieReviewViewController.swift */,
+				FA8F927C28D42D9300B8D635 /* TODO.md */,
+				FA8F927A28D41AB600B8D635 /* ReviewsModalViewController.swift */,
+				FA8F927828D3D22E00B8D635 /* PodcastTableViewCell.swift */,
 				FA8F927628D2E0CA00B8D635 /* ShowViewController.swift */,
 				FA8F927428D2E0BC00B8D635 /* MovieViewController.swift */,
 				FA8F927228D2C9C300B8D635 /* ShowTableViewCell.swift */,
@@ -160,11 +180,17 @@
 				FA7284EF28C8F514002CB276 /* ViewController.swift in Sources */,
 				FA8F927328D2C9C300B8D635 /* ShowTableViewCell.swift in Sources */,
 				FA8F927528D2E0BC00B8D635 /* MovieViewController.swift in Sources */,
+				FA8F927B28D41AB600B8D635 /* ReviewsModalViewController.swift in Sources */,
+				FA8F927E28D4323E00B8D635 /* CreateMovieReviewViewController.swift in Sources */,
 				FA8F927128D2C9A600B8D635 /* MovieTableViewCell.swift in Sources */,
+				FA8F928228D4327E00B8D635 /* CreatePodcastReviewViewController.swift in Sources */,
 				FA8F927728D2E0CA00B8D635 /* ShowViewController.swift in Sources */,
 				FA7284EB28C8F514002CB276 /* AppDelegate.swift in Sources */,
 				FA8F926F28D2C24B00B8D635 /* MediaModel.swift in Sources */,
+				FA8F927928D3D22E00B8D635 /* PodcastTableViewCell.swift in Sources */,
+				FA8F928428D43D0100B8D635 /* PodcastViewController.swift in Sources */,
 				FA7284ED28C8F514002CB276 /* SceneDelegate.swift in Sources */,
+				FA8F928028D4326E00B8D635 /* CreateShowReviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

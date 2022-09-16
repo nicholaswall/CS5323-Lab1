@@ -1,23 +1,23 @@
 //
-//  MovieViewController.swift
+//  PodcastViewController.swift
 //  CS5323-Lab1
 //
-//  Created by Nick Wall on 9/14/22.
+//  Created by Nick Wall on 9/16/22.
 //
 
 import UIKit
 
-class MovieViewController: UIViewController, ModalViewControllerDelegate {
+class PodcastViewController: UIViewController, ModalViewControllerDelegate {
     
-    @IBOutlet weak var movieNameLabel: UILabel!
-    @IBOutlet weak var movieCoverImage: UIImageView!
+    @IBOutlet weak var podcastNameLabel: UILabel!
+    @IBOutlet weak var podcastCoverImage: UIImageView!
     
     @IBAction func displayReviewsModalButton(_ sender: UIButton) {
         self.showModal(sender: sender)
     }
     
     let mediaModel = MediaModel.shared;
-    var movieData: Movie!;
+    var podcastData: Podcast!;
     
     var modalView: ReviewsModalViewController?
     
@@ -25,23 +25,20 @@ class MovieViewController: UIViewController, ModalViewControllerDelegate {
         super.viewDidLoad()
         self.modalView = storyboard?.instantiateViewController(withIdentifier: "reviewsModalViewController") as? ReviewsModalViewController
         
-        self.movieNameLabel.text = self.movieData.name
-        
+        self.podcastNameLabel.text = self.podcastData.name
     }
     
-    func showModal(sender: AnyObject){
-        if(self.modalView?.modalDelegate == nil) {
+    func showModal(sender: AnyObject) {
+        if (self.modalView?.modalDelegate == nil) {
             self.modalView!.modalDelegate = self;
         }
-       
-        self.present(self.modalView!, animated: true, completion: nil)
     }
     
-    
-    func modalDidFinished(){
+    func modalDidFinished() {
         self.modalView!.dismiss(animated: true, completion: nil)
     }
     
+
     /*
     // MARK: - Navigation
 
