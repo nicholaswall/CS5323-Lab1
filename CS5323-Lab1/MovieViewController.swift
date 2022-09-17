@@ -26,12 +26,14 @@ class MovieViewController: UIViewController, ModalViewControllerDelegate {
         self.modalView = storyboard?.instantiateViewController(withIdentifier: "reviewsModalViewController") as? ReviewsModalViewController
         
         self.movieNameLabel.text = self.movieData.name
+        self.movieCoverImage.loadFrom(URLAddress: self.movieData.coverImage)
         
     }
     
     func showModal(sender: AnyObject){
         if(self.modalView?.modalDelegate == nil) {
             self.modalView!.modalDelegate = self;
+            self.modalView!.mediaData = self.movieData;
         }
        
         self.present(self.modalView!, animated: true, completion: nil)
@@ -42,14 +44,18 @@ class MovieViewController: UIViewController, ModalViewControllerDelegate {
         self.modalView!.dismiss(animated: true, completion: nil)
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if let destinationViewController = segue.destination as? CreateMovieReviewViewController {
+            destinationViewController.movieId = movieData.id;
+        }
     }
-    */
+    
 
 }

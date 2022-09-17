@@ -14,21 +14,16 @@ class MovieTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         self.initialize()
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,9 +32,6 @@ class MovieTableViewCell: UITableViewCell {
        }
     
     func initialize() {
-//        self.movieNameLabel = UILabel()
-//        print("Initialized movie cell...")
-//        self.movieNameLabel?.text = "Default Text from init"
     }
 
 }

@@ -21,14 +21,14 @@ Use lazy instantiation when possible
 [-] Sliders
 [-] Labels
 [-] Stepper
-[] Switch
+[-] Switch
 [-] Picker (must implement picker delegate)
-[] Segmented Control
-[] Timer (should repeat and somehow update the UIView)
-[] ScrollView (with scrollable zoomable content)
+[-] Segmented Control
+[-] Timer (should repeat and somehow update the UIView)
+[-] ScrollView (with scrollable zoomable content)
 [-] ImageView
 [-] NavigationController
-[] CollectionViewController
+[-] CollectionViewController
 [-] TableViewController with 3 dynamic prototype cells
 [] Works in potrait and landscape
 [] Does not crash

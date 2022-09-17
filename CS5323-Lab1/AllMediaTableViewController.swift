@@ -13,45 +13,26 @@ class AllMediaTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-//        return mediaModel.getAllMedia().count
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-//        return 1
-        
         return mediaModel.getAllMedia().count
 
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let media = mediaModel.getAllMedia();
                 
-        
-        
         if media[indexPath.row] is Movie {
             print("\(media[indexPath.row].name) is a Movie")
             let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)  as! MovieTableViewCell
             let name = media[indexPath.row].name
             cell.movieNameLabel?.text = name;
             return cell
-
-            
         } else if media[indexPath.row] is Show {
             print("\(media[indexPath.row].name) is a Show")
             let cell = tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as! ShowTableViewCell
@@ -68,8 +49,6 @@ class AllMediaTableViewController: UITableViewController {
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-      //Do whatever you want with the cell
-        
         print("Selected cell!!!")
     }
     
@@ -155,24 +134,7 @@ class AllMediaTableViewController: UITableViewController {
                 fatalError("Failed to pass data as props")
             }
         }
-      
-//    }
-        
-//        if let cell = sender as? PodcastTableViewCell {
-//                let movieData = mediaModel.getMediaItemByName(name: cell.po.text!) as? Movie
-//
-//                if let destinationViewController = segue.destination as? MovieViewController {
-//                    destinationViewController.movieData = movieData
-//                } else {
-//                    fatalError("Failed to pass data as props")
-//                }
-//                fatalError("Failed to coerce cell")
-//            }
-//            return
-//        }
     
-        
-        print("ERROR")
         fatalError("Could not determine segue source cell")
         
     }

@@ -27,12 +27,15 @@ class ShowViewController: UIViewController, ModalViewControllerDelegate {
         self.modalView = storyboard?.instantiateViewController(withIdentifier: "reviewsModalViewController") as? ReviewsModalViewController
         
         self.showNameLabel.text = self.showData.name
+        
+        self.showCoverImage.loadFrom(URLAddress: showData.coverImage)
 
     }
     
     func showModal(sender: AnyObject) {
         if(self.modalView?.modalDelegate == nil) {
             self.modalView!.modalDelegate = self;
+            self.modalView!.mediaData = self.showData;
         }
         
         self.present(self.modalView!, animated: true, completion: nil)
@@ -43,14 +46,29 @@ class ShowViewController: UIViewController, ModalViewControllerDelegate {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if let destinationViewController = segue.destination as? CreateShowReviewViewController {
+            destinationViewController.showId = showData.id;
+        }
     }
-    */
 
+}
+
+extension UIImageView {
+    func loadFrom(URLAddress: String) {
+        guard let url = URL(string: URLAddress) else {
+            return
+        }
+        
+        DispatchQueue.main.async { [weak self] in
+            if let imageData = try? Data(contentsOf: url) {
+                if let loadedImage = UIImage(data: imageData) {
+                        self?.image = loadedImage                    
+                }
+            }
+        }
+    }
 }

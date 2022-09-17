@@ -26,17 +26,36 @@ class PodcastViewController: UIViewController, ModalViewControllerDelegate {
         self.modalView = storyboard?.instantiateViewController(withIdentifier: "reviewsModalViewController") as? ReviewsModalViewController
         
         self.podcastNameLabel.text = self.podcastData.name
+        self.podcastCoverImage.loadFrom(URLAddress: self.podcastData.coverImage)
     }
     
     func showModal(sender: AnyObject) {
         if (self.modalView?.modalDelegate == nil) {
+            self.modalView!.mediaData = self.podcastData;
             self.modalView!.modalDelegate = self;
         }
+        
+        self.present(self.modalView!, animated: true, completion: nil)
     }
     
     func modalDidFinished() {
         self.modalView!.dismiss(animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? InspectImageViewController {
+            destinationViewController.imageUrl = self.podcastData.coverImage
+        }
+        
+        if let destinationViewController = segue.destination as? LatestEpisodesCollectionViewController {
+            destinationViewController.podcastData = self.podcastData;
+        }
+        
+        if let destinationViewController = segue.destination as? CreatePodcastReviewViewController {
+            destinationViewController.podcastId = self.podcastData.id;
+        }
+    }
+}
     
 
     /*
@@ -49,4 +68,3 @@ class PodcastViewController: UIViewController, ModalViewControllerDelegate {
     }
     */
 
-}
